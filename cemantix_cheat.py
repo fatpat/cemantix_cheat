@@ -46,8 +46,8 @@ def choose_next_word():
         # loop over each word for this score
         for word in closed_words[i]:
 
-            # find 20 similarities and loop over
-            for i in model.most_similar(word, topn=20):
+            # find 10 similarities and loop over
+            for i in model.most_similar(word, topn=10):
 
                 # extract the word
                 word = i[0]

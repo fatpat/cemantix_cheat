@@ -103,7 +103,12 @@ while True:
     word = choose_next_word()
 
     # test the word (and remove the suffix (_n, _v, _adv, ...)
-    s = test_word(re.sub('_\w+$', '', word))
+    try:
+        s = test_word(re.sub('_\w+$', '', word))
+    except Exception as e:
+        print("%s -> error (%s)" % (word, e))
+        tested_words[word] = -1
+        continue
 
     # record the tested word to prevent testing it again
     tested_words[word] = -1

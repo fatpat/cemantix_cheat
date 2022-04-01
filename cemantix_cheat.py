@@ -10,6 +10,7 @@ import itertools
 import pprint
 import random
 import re
+import sys
 
 #
 # test a word against the game
@@ -55,6 +56,15 @@ def choose_next_word():
                 # return if not already tested
                 if word not in tested_words:
                     return word
+
+    # test argv for pre words
+    if len(sys.argv) > 1:
+        print("len(sysargv)=%d" % len(sys.argv))
+        for word in sys.argv[1:]:
+            print("arg -> %s" % word)
+            if word not in tested_words:
+                print("arg selected -> %s" % word)
+                return word
     
     # if all words from similarities have already been tested
     # failover to random words from the model

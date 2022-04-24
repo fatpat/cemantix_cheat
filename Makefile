@@ -12,4 +12,7 @@ start: $(CACHE)
 	docker run --rm -it -v $(CACHE):/cache.json cemantix --cache /cache.json --op start
 
 search: $(CACHE)
-	docker run --rm -it -v $(CACHE).json:/cache.json cemantix --cache /cache.json --op search
+	docker run --rm -it -v $(CACHE):/cache.json cemantix --cache /cache.json --op search
+
+fill_cache: $(CACHE)
+	docker run --rm -it -v $(CACHE):/cache.json cemantix --cache /cache.json --op fill_cache

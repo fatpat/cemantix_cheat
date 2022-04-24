@@ -84,7 +84,7 @@ def choose_next_word():
     raise Exception("All words have been tried ... no luck")
 
 def usage():
-    print("%s: [-h|--help] [-c|--cache /path/to/cache_file] [-o|--operation|--op search|start]" % sys.argv[0])
+    print("%s: [-h|--help] [-c|--cache /path/to/cache_file] [-o|--operation|--op search|start|fill_cache]" % sys.argv[0])
 
 #
 # MAIN CODE
@@ -129,7 +129,7 @@ for opt, arg in opts:
         OPERATION=arg
         continue
 
-if OPERATION not in ("search", "start"):
+if OPERATION not in ("search", "start", "fill_cache"):
     print("operation must be 'search' or 'start'")
     usage()
     sys.exit(1)
@@ -192,6 +192,10 @@ while True:
         continue
 
     tries = tries + 1
+
+    if OPERATION == "fill_cache":
+        print("%s -> known word, skipping because of fill_cache operation" % word)
+        continue
 
     # word found !
     if s['score'] >= 1:

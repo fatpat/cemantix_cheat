@@ -8,6 +8,7 @@ So here is a cheat script to find the word. Nothing magic, just using the same d
 1- build the image using `make build`
 2- search for the solution: `make search`
 3- search for a closed word only: `make start`
+4- fill the unknown words cache only: `make fill_cache`
 and wait ...
 
 ## Credits

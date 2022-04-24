@@ -170,7 +170,7 @@ while True:
     word = choose_next_word()
 
     if word in unknown_words:
-        print("%s -> skipping because it's an unknown word (from cache)", word)
+        print("%s -> skipping because it's an unknown word (from cache)" % word)
         tested_words[word] = -1 # record the words to prevent from extracting it again in choose_next_word()
         continue
 

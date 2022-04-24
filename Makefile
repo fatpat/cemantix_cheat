@@ -1,10 +1,15 @@
 .PHONY: build start search
 
+CACHE=$(shell pwd)/cache.json
+
+$(CACHE):
+	touch $(CACHE)
+
 build:
 	docker build . -t cemantix
 
-start:
-	docker run --rm -it -v $(shell pwd)/cache.json:/cache.json cemantix --cache /cache.json --op start
+start: $(CACHE)
+	docker run --rm -it -v $(CACHE):/cache.json cemantix --cache /cache.json --op start
 
-search:
-	docker run --rm -it -v $(shell pwd)/cache.json:/cache.json cemantix --cache /cache.json --op search
+search: $(CACHE)
+	docker run --rm -it -v $(CACHE).json:/cache.json cemantix --cache /cache.json --op search

@@ -5,10 +5,9 @@ Nice game, but only one per day. Once done, I had to find a way to make it fun.
 So here is a cheat script to find the word. Nothing magic, just using the same database as the game and play the game.
 
 ## Usage
-```
-docker build . -t cemantix
-docker run --rm -it cemantix
-```
+1- build the image using `make build`
+2- search for the solution: `make search`
+3- search for a closed word only: `make start`
 and wait ...
 
 ## Credits

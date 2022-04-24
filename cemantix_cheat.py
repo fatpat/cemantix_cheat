@@ -211,7 +211,7 @@ while True:
 
         print("%s -> close %d" % (word, s['percentile']))
         if OPERATION == "start":
-            sys.exit(0)
+            break
         continue
 
 
@@ -224,7 +224,10 @@ time_stop = datetime.now()
 duration = time_stop - time_start
 
 print("")
-print("Word of the day found: %s ! congratulations" % re.sub('_\w+$', '', word))
+if OPERATION == "start":
+    print("A closed word has been found: %s ! You can start playing for fun now" % re.sub('_\w+$', '', word))
+else:
+    print("Word of the day found: %s ! congratulations" % re.sub('_\w+$', '', word))
 print("")
 print("Statistics:")
 print("  number of tries : %d" % tries)
